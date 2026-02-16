@@ -27,52 +27,60 @@ In this small Scrapy project, `scrapy.cfg` is the root config file that tells Sc
 
 ---
 
-## How to run this
+## How to Run This
 
-Clone this repository to your computer:
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/zerocool979/Data-Engineering.git
+cd Data-Engineering/Scrapt/tutorial
+````
 
-    ```bash
-    git clone https://github.com/zerocool979/Data-Engineering.git
-    cd Data-Engineering
-    ```
+### 2️⃣ Create & Activate Virtual Environment
 
-Create and Activate a Virtual Environment:
+**Windows**
 
-  - **Windows** :
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
-    ```bash
-    python -m venv venv
-    .\venv\Scripts\Activate
-    ```
+**Mac/Linux**
 
-  - **Mac/Linux**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
+### 3️⃣ Install Dependencies
 
-Install Dependencies
+```bash
+pip install scrapy lxml
+```
 
-    ```bash
-    pip install scrapy lxml
-    ```
+### 4️⃣ Run the Spider
 
-Run Spider Basic commands:
+Basic run:
 
-    ```bash
-    scrapy crawl amazon
-    ```
-    ```bash
-    scrapy crawl amazon -o items.json
-    ```
-    ```bash
-    scrapy crawl amazon -o items.csv
-    ```
+```bash
+scrapy crawl amazon
+```
 
-If the Spider Doesn't Work
-Check the spider list:
+Export to JSON:
 
-    ```bash
-    scrapy list
-    ```
+```bash
+scrapy crawl amazon -o items.json
+```
+
+Export to CSV:
+
+```bash
+scrapy crawl amazon -o items.csv
+```
+
+### 5️⃣ If Spider Doesn’t Run
+
+Check available spiders:
+
+```bash
+scrapy list
+```
