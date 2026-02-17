@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraping Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index_result.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Scraping Results</h1>
+            <div class="header-actions">
+                <a href="/" class="btn-back">← Back to Home</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Form Scraping Baru -->
+            <div class="new-scrape-form">
+                <h3>Scrape Other Websites</h3>
+                <form action="/scrape" method="POST">
+                    <div class="input-group">
+                        <input 
+                            type="url" 
+                            name="url" 
+                            placeholder="Input URL website..." 
+                            required
+                            value="{{ result.url if result else '' }}"
+                        >
+                        <button type="submit" class="scrape-btn">Scrape</button>
+                    </div>
+                </form>
+            </div>
+
+            {% if error %}
+            <div class="error-message">
+                <h3>❌ Error</h3>
+                <p>{{ error }}</p>
+                <div class="error-actions">
+                    <a href="/" class="btn-primary">Back to Home</a>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if result %}
+            <div class="result-container">
+                <!-- Info URL -->
+                <div class="url-info">
+                    <h3>Discrape URL:</h3>
+                    <a href="{{ result.url }}" target="_blank" class="url-link">{{ result.url }}</a>
+                </div>
+
+                <!-- Statistik Cepat -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-content">
+                            <span class="stat-label">Title</span>
+                            <span class="stat-value">{{ result.title[:50] }}{% if result.title|length > 50 %}...{% endif %}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">🔗</div>
+                        <div class="stat-content">
+                            <span class="stat-label">Total Links</span>
+                            <span class="stat-value">{{ result.statistics.total_links }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">🖼️</div>
+                        <div class="stat-content">
+                            <span class="stat-label">Total Images</span>
+                            <span class="stat-value">{{ result.statistics.total_images }}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">📄</div>
+                        <div class="stat-content">
+                            <span class="stat-label">Total Paragraf</span>
+                            <span class="stat-value">{{ result.statistics.total_paragraphs }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Meta Description -->
+                {% if result.meta_description %}
+                <div class="section meta-section">
+                    <h3>Meta Description</h3>
+                    <div class="meta-content">
+                        <p>{{ result.meta_description }}</p>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Headings -->
+                <div class="section headings-section">
+                    <h3>Heading Structure</h3>
+                    <div class="headings-grid">
+                        {% if result.headings.h1 %}
+                        <div class="heading-group">
+                            <h4>H1 Tags</h4>
+                            <ul>
+                                {% for h1 in result.headings.h1 %}
+                                <li>{{ h1 }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        {% if result.headings.h2 %}
+                        <div class="heading-group">
+                            <h4>H2 Tags</h4>
+                            <ul>
+                                {% for h2 in result.headings.h2 %}
+                                <li>{{ h2 }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+
+                        {% if result.headings.h3 %}
+                        <div class="heading-group">
+                            <h4>H3 Tags</h4>
+                            <ul>
+                                {% for h3 in result.headings.h3 %}
+                                <li>{{ h3 }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Paragraphs -->
+                {% if result.paragraphs %}
+                <div class="section paragraphs-section">
+                    <h3>Sample Paragraphs</h3>
+                    <div class="paragraphs-list">
+                        {% for p in result.paragraphs %}
+                        <div class="paragraph-item">
+                            <p>{{ p }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Links -->
+                {% if result.links %}
+                <div class="section links-section">
+                    <h3>Links (Sample)</h3>
+                    <div class="links-grid">
+                        {% for link in result.links %}
+                        <div class="link-item">
+                            <a href="{{ link.url }}" target="_blank" class="link-url">{{ link.url[:50] }}...</a>
+                            <span class="link-text">{{ link.text }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Images -->
+                {% if result.images %}
+                <div class="section images-section">
+                    <h3>Images (Sample)</h3>
+                    <div class="images-grid">
+                        {% for img in result.images %}
+                        <div class="image-item">
+                            <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy">
+                            <p class="image-alt">{{ img.alt }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- JSON Data -->
+                <div class="section json-section">
+                    <h3>Raw JSON Data</h3>
+                    <pre class="json-display">{{ result | tojson(indent=2) }}</pre>
+                </div>
+            </div>
+            {% endif %}
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/index_result.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Web Scraper</h1>
+            <p class="subtitle">Extract data from websites easily and quickly</p>
+        </header>
+
+        <main>
+            <div class="scraper-card">
+                <form id="scrapeForm" action="/scrape" method="POST">
+                    <div class="input-group">
+                        <label for="url">Input Website URL:</label>
+                        <div class="url-input-wrapper">
+                            <input 
+                                type="url" 
+                                id="url" 
+                                name="url" 
+                                placeholder="https://www.example.com" 
+                                required
+                                pattern="https?://.+"
+                                title="Enter a valid URL (example: https://www.example.com)"
+                            >
+                            <button type="submit" class="scrape-btn">
+                                <span class="btn-text">Scrape Now</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </div>
+                        <p class="input-hint">Example: https://www.python.org or https://www.github.com</p>
+                    </div>
+                </form>
+
+                <div class="features">
+                    <h3>Features Available:</h3>
+                    <ul>
+                        <li>📄 Extract page title</li>
+                        <li>🏷️ Get meta description</li>
+                        <li>📑 Collect all headings (h1, h2, h3)</li>
+                        <li>🔗 Get all links</li>
+                        <li>🖼️ Extract image information</li>
+                        <li>📊 Complete page statistics</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recent-scrapes">
+                <h3>Recent Scrapes</h3>
+                <div class="recent-list">
+                    <!-- Akan diisi dengan JavaScript -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Web Scraper. Created for Data Engineering purposes.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
