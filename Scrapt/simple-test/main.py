@@ -20,9 +20,12 @@ for block in country_blocks:
 
     results.append({"name": country_name, "capital": capital_name, "population": population_name})
 
-# for item in results:
-#     print(f"Country: {item['name']} - Capital: {item['capital']} - Population: {item['population']}")
+for item in results:
+    print(f"Country: {item['name']} - Capital: {item['capital']} - Population: {item['population']}")
 
+
+
+'''
 with open('countries.csv', 'w', newline='', encoding='utf-8') as csvfile:
     fieldnames = ['name', 'capital', 'population']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -30,3 +33,5 @@ with open('countries.csv', 'w', newline='', encoding='utf-8') as csvfile:
     writer.writeheader()
     for item in results:
         writer.writerow(item)
+
+'''
