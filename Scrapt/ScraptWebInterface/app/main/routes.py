@@ -9,25 +9,18 @@ import re
 main = Blueprint('main', __name__)
 
 def scrape_website(url):
-    """Fungsi utama untuk melakukan web scraping"""
     try:
-        # Validasi URL
         if not validators.url(url):
             return {"error": "Invalid URL. Please enter the complete URL (example: https://www.example.com)"}
         
-        # Tambahkan header untuk menghindari blocking
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
         
-        # Request ke website
         response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()
-        
-        # Parse HTML
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Ekstrak data
         result = {
             "url": url,
             "title": soup.title.string if soup.title else "No title found",
@@ -43,12 +36,10 @@ def scrape_website(url):
             "statistics": {}
         }
         
-        # Meta description
         meta_desc = soup.find('meta', attrs={'name': 'description'})
         if meta_desc:
             result["meta_description"] = meta_desc.get('content', '')
         
-        # Links
         for link in soup.find_all('a', href=True)[:10]:
             href = link.get('href')
             if href and not href.startswith('#'):
@@ -57,7 +48,6 @@ def scrape_website(url):
                     "url": href if href.startswith('http') else url.rstrip('/') + '/' + href.lstrip('/')
                 })
         
-        # Images
         for img in soup.find_all('img', src=True)[:10]:
             src = img.get('src')
             result["images"].append({
@@ -65,13 +55,11 @@ def scrape_website(url):
                 "src": src if src.startswith('http') else url.rstrip('/') + '/' + src.lstrip('/')
             })
         
-        # Paragraphs
         for p in soup.find_all('p')[:5]:
             text = p.get_text(strip=True)
             if text and len(text) > 20:
                 result["paragraphs"].append(text[:200] + "..." if len(text) > 200 else text)
         
-        # Statistics
         result["statistics"] = {
             "total_links": len(soup.find_all('a')),
             "total_images": len(soup.find_all('img')),
@@ -92,25 +80,19 @@ def scrape_website(url):
 
 @main.route('/')
 def index():
-    """Halaman utama dengan form input URL"""
     return render_template('index.html')
 
 @main.route('/scrape', methods=['POST'])
 def scrape():
-    """Endpoint untuk melakukan scraping"""
     url = request.form.get('url', '').strip()
     
     if not url:
         return render_template('index_result.html', error="Please enter URL")
     
-    # Tambahkan http:// jika tidak ada
     if not url.startswith(('http://', 'https://')):
         url = 'https://' + url
     
-    # Simpan URL di session
     session['last_url'] = url
-    
-    # Render loading page
     return render_template('loading.html', url=url)
 
 @main.route('/scrape/result')
@@ -124,7 +106,6 @@ def scrape_result():
     if not url:
         return render_template('index_result.html', error="URL not found. Please start a new scraping session.")
     
-    # Lakukan scraping
     result = scrape_website(url)
     
     if "error" in result:
