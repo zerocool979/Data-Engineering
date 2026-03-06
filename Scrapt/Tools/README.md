@@ -6,10 +6,19 @@ Clone & Using
 -------------
 Ideally, you should be able to just type:
     ```bash
-    https://github.com/zerocool979/Data-Engineering.git
+    https://github.com/zerocool979/Data-Engineering.git 
+    ```
+    next:
+    ```bash
     cd Data-Engineering/Scrapt/Tools
+    ```
+    next:
+    ```bash
     pip install -r requirements.txt
-    python on.py 
+    ```
+    next:
+    ```bash
+    python on.py
     ```
 
 Author
