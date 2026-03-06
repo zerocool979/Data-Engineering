@@ -7,3 +7,4 @@ colorama
 wordcloud
 textblob
 openpyxl
+google-genai

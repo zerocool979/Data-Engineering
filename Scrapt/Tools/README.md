@@ -15,13 +15,22 @@ next:
 next:
 
     pip install -r requirements.txt
-    
+
 next:
+
+    pip install -r requirements.txt
     
-    python on.py
+next: you should be able to change "YOUR_GOOGLE_API_KEY" in line 333
+        try:
+        client = genai.Client(
+            api_key="YOUR_GOOGLE_API_KEY"
+        )
 
 note: u must have installed all the libraries used in the script
     
+List & Test Gemini
+-------------
+set api_key then list model then set the model and prompt you want to use
 
 Author
 -------------

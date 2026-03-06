@@ -1,6 +1,9 @@
 # Download comments from YouTube : pip install youtube-comment-downloader
 from youtube_comment_downloader import YoutubeCommentDownloader
 
+# Initialize Gemini client for generateting content (analysis results) : pip install google-genai
+from google import genai
+
 # Create & generate PDF (long text, paragraphs, images, styling) : pip install reportlab
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image
 from reportlab.lib.styles import getSampleStyleSheet
@@ -197,6 +200,7 @@ def cli_loop():
                 parsed["url"],
                 parsed["max"]
             )
+            gemini_result = gemini_analysis(comments)
         else:
             print(Fore.RED + "[ERROR] Scan type not implemented yet")
             continue
@@ -210,7 +214,8 @@ def cli_loop():
                 parsed["url"],
                 comments,
                 top_words,
-                sentiment
+                sentiment,
+                gemini_result
             )
 
         elif parsed["output"] is None:
@@ -318,6 +323,56 @@ def clean_text(text):
     return text
 
 # ==============================
+# analysis results with Gemini API
+# ==============================
+# Buat kesimpulan akhir tentang opini mayoritas penonton.
+def gemini_analysis(comments):
+
+    try:
+        client = genai.Client(
+            api_key="YOUR_GOOGLE_API_KEY"
+        )
+
+        # batasi agar tidak terlalu panjang
+        sample_comments = comments[:100]
+
+        comment_text = "\n".join(sample_comments)
+
+        prompt = f"""
+Berikut adalah komentar YouTube.
+
+{comment_text}
+
+Tugasmu:
+
+1. Kelompokkan komentar menjadi:
+   - Positive
+   - Neutral
+   - Negative
+
+2. Ambil 5 contoh komentar dari masing-masing kategori.
+
+3. Jika suatu kategori kosong tulis:
+   "Tidak ada komentar kategori tersebut."
+
+4. Jelaskan dengan bahasa sederhana kenapa komentar tersebut
+termasuk Positive / Neutral / Negative.
+
+5. Tuliskan hasilnya dalam bentuk beberapa paragraf
+yang cocok untuk laporan analisis sentimen.
+"""
+
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
+
+        return response.text
+
+    except Exception as e:
+        return f"Gemini analysis failed: {e}"
+    
+# ==============================
 # EXPORT DATA FILE
 # ==============================
 def export_data(comments, sentiment, filename, format):
@@ -409,7 +464,7 @@ def generate_sentiment_chart(sentiment):
     plt.savefig("sentiment.png")
     plt.close()
 
-def generate_pdf_report(filename, url, original_comments, top_words, sentiment_result):
+def generate_pdf_report(filename, url, comments, top_words, sentiment_result, gemini_result):
     doc = SimpleDocTemplate(filename, pagesize=A4)
     elements = []
 
@@ -427,11 +482,11 @@ def generate_pdf_report(filename, url, original_comments, top_words, sentiment_r
 
     # 3. jumlah Komentar Asli (sesuai input user)
     elements.append(Paragraph(
-    f"<b>{len(original_comments)} Komentar Utuh/Asli:</b>",
+    f"<b>{len(comments)} Komentar Utuh/Asli:</b>",
     styles["Heading2"]))
     elements.append(Spacer(1, 0.2 * inch))
 
-    for comment in original_comments:
+    for comment in comments:
         elements.append(Paragraph(comment, normal_style))
         elements.append(Spacer(1, 0.1 * inch))
 
@@ -500,6 +555,14 @@ def generate_pdf_report(filename, url, original_comments, top_words, sentiment_r
         f"Kesimpulan: {conclusion}",
         normal_style
     ))
+
+    elements.append(Spacer(1,20))
+    elements.append(Paragraph("AI Sentiment Explanation (Gemini)", styles['Heading2']))
+    elements.append(Spacer(1,10))
+
+    for paragraph in gemini_result.split("\n"):
+        elements.append(Paragraph(paragraph, styles['BodyText']))
+        elements.append(Spacer(1,8))
 
     doc.build(elements)
 
