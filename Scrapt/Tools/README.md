@@ -8,17 +8,19 @@ Ideally, you should be able to just type:
 
     https://github.com/zerocool979/Data-Engineering.git 
 
-    next:
+next:
     
     cd Data-Engineering/Scrapt/Tools
     
-    next:
+next:
 
     pip install -r requirements.txt
     
-    next:
+next:
     
     python on.py
+
+note: u must have installed all the libraries used in the script
     
 
 Author
