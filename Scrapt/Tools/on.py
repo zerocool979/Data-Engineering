@@ -330,7 +330,7 @@ def gemini_analysis(comments):
 
     try:
         client = genai.Client(
-            api_key="YOUR_GOOGLE_API_KEY"
+            api_key="AIzaSyDuZwjHPddQsGBA8WO36XsKbnA27AI9pyA"
         )
 
         # batasi agar tidak terlalu panjang

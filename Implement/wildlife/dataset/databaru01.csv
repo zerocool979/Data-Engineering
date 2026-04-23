@@ -1,0 +1,8 @@
+Animal,Height (cm),Weight (kg),Color,Lifespan (years),Diet,Habitat,Predators,Top Speed (km/h),Countries Found,Conservation Status,Social Structure,Offspring per Birth
+Lion ,120,190,Golden,14,Carnivore,Grassland,None,80,Kenya,Vulnerable,Group,2-4
+Elephant,300,6000,Grey,60,Herbivore,Savannah,None,40,India,Endangered,Herd,1
+Cheetah,90,72,Spotted,12,Carnivore,Grassland,Lion,120,Namibia,Vulnerable,Solitary,3-5
+Giraffe,500,800,Brown-Yellow,25,Herbivore,Savannah,Lion,60,Kenya,Least Concern,Group,1
+Lion,120,190,Golden,14,Carnivore,Grassland,None,80,Kenya,Vulnerable,Group,2-4
+Panda,70,100,Black-White,20,Herbivore,Forest,Snow Leopard,32,China,Vulnerable,Solitary,1-2
+ Kangaroo,160,85,Brown,23,Herbivore,Grassland,Dingo,70,Australia,Least Concern,Group,1

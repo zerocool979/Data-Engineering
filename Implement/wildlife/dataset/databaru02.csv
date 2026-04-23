@@ -1,0 +1,26 @@
+Animal,Height (cm),Weight (kg),Color,Lifespan (years),Diet,Habitat,Predators,Top Speed (km/h),Countries Found,Conservation Status,Social Structure,Offspring per Birth
+Tiger,110.0,220.0,Orange-Black,15,Carnivore,Forest,None,65,India,Endangered,Solitary,2-3
+Elephant ,300.0,6000.0,Grey,60,Herbivore,Savannah,None,40,India,Endangered,Herd,1
+panda,70.0,100.0,Black-White,20,Herbivore,Forest,Snow Leopard,32,China,Vulnerable,Solitary,1-2
+Wolf,80.0,45.0,Grey,13,Carnivore,Forest,Bear,60,Canada,Least Concern,Pack,4-6
+Lion,120.0,190.0,Golden,14,Carnivore,Grassland,None,80,Kenya,Vulnerable,Group,2-4
+Cheetah,90.0,72.0,Spotted,12,Carnivore,Grassland,Lion,120,Namibia,Vulnerable,Solitary,3-5
+Giraffe,500.0,800.0,Brown-Yellow,25,Herbivore,Savannah,Lion,60,Kenya,Least Concern,Group,1
+Tiger,110.0,220.0,Orange-Black,15,Carnivore,Forest,None,65,India,Endangered,Solitary,2-3
+Koala,60.0,15.0,Grey,13,Herbivore,Forest,None,30,Australia,Vulnerable,Solitary,1
+ Kangaroo,160.0,85.0,Brown,23,Herbivore,Grassland,Dingo,70,Australia,Least Concern,Group,1
+Bear,150.0,300.0,Brown,25,Omnivore,Forest,Human,50,USA,Least Concern,Solitary,1-3
+Penguin,45.0,30.0,Black-White,20,Carnivore,Antarctica,Seal,10,Antarctica,Least Concern,Group,1-2
+Dolphin,250.0,150.0,Grey,30,Carnivore,Ocean,Shark,60,Global,Least Concern,Group,1
+Shark,,900.0,Blue-Grey,25,Carnivore,Ocean,None,50,Global,Near Threatened,Solitary,10-20
+Eagle,70.0,6.0,Brown,20,Carnivore,Mountains,Human,160,USA,Least Concern,Solitary,2-3
+Falcon,50.0,1.5,Brown,15,Carnivore,Mountains,Human,200,USA,Least Concern,Solitary,2-4
+Wolf ,80.0,45.0,Grey,13,Carnivore,Forest,Bear,60,Canada,Least Concern,Pack,4-6
+Lion,120.0,190.0,Golden,14,Carnivore,Grassland,None,80,Kenya,Vulnerable,Group,2-4
+Otter,40.0,10.0,Brown,12,Carnivore,River,Wolf,25,Canada,Least Concern,Group,1-2
+Seal,90.0,80.0,Grey,20,Carnivore,Ocean,Shark,35,Norway,Least Concern,Group,1
+Walrus,120.0,1000.0,Brown,40,Carnivore,Ocean,Orca,35,Canada,Vulnerable,Group,1
+Moose,210.0,500.0,Brown,20,Herbivore,Forest,Wolf,55,Canada,Least Concern,Solitary,1
+Rhino,180.0,2300.0,Grey,35,Herbivore,Savannah,None,55,India,Vulnerable,Solitary,1
+Hippo,160.0,1500.0,Grey,40,Herbivore,River,None,48,Egypt,Vulnerable,Group,1
+Panda ,70.0,100.0,Black-White,20,Herbivore,Forest,Snow Leopard,32,China,Vulnerable,Solitary,1-2
