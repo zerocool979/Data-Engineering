@@ -1,6 +1,7 @@
----
 
-```
+**Jalankan:**
+
+```bash
 unzip wildlife-intelligence-pipeline.zip
 cd wildlife-intelligence-pipeline
 pip install -r requirements.txt
