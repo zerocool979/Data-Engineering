@@ -2,13 +2,9 @@
 
 > Automated Data Engineering System for Wildlife Dataset Management
 
----
-
 ## Run
 
 ```bash
-unzip wildlife-intelligence-pipeline.zip
-cd wildlife-intelligence-pipeline
 pip install -r requirements.txt
 chmod -R 755 data
 streamlit run dashboard/app.py
