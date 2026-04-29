@@ -1,0 +1,24 @@
+2026-04-28 21:29:49,048 [INFO] === Pipeline started ===
+2026-04-28 21:29:49,119 [INFO] Master rows: 205
+2026-04-28 21:29:49,125 [INFO] Deduplication: 205 → 196 rows
+2026-04-28 21:29:49,150 [INFO] Cleaned dataframe: 196 rows remaining.
+2026-04-28 21:29:49,151 [INFO] Feature engineering complete: Size Category and Speed Category added.
+2026-04-28 21:29:49,158 [INFO] Pipeline complete. Final rows: 196
+2026-04-28 21:31:25,231 [INFO] File saved to /home/fufufafa/Data-Engineering/Implement/wildlife/wildlife-intelligence-pipeline/scripts/../data/uploads/uploaded_20260428_213125.csv
+2026-04-28 21:31:25,231 [INFO] === Pipeline started ===
+2026-04-28 21:31:25,244 [INFO] Master rows: 205
+2026-04-28 21:31:25,278 [INFO] Uploaded rows: 7
+2026-04-28 21:31:25,281 [INFO] Combined rows before dedup: 212
+2026-04-28 21:31:25,282 [INFO] Deduplication: 212 → 202 rows
+2026-04-28 21:31:25,338 [INFO] Cleaned dataframe: 202 rows remaining.
+2026-04-28 21:31:25,340 [INFO] Feature engineering complete: Size Category and Speed Category added.
+2026-04-28 21:41:24,928 [INFO] File saved to /home/fufufafa/Data-Engineering/Implement/wildlife/wildlife-intelligence-pipeline/scripts/../data/uploads/uploaded_20260428_214124.csv
+2026-04-28 21:41:24,928 [INFO] === Pipeline started ===
+2026-04-28 21:41:24,933 [INFO] Master rows: 205
+2026-04-28 21:41:24,936 [INFO] Uploaded rows: 7
+2026-04-28 21:41:24,967 [INFO] Combined rows before dedup: 212
+2026-04-28 21:41:24,997 [INFO] Deduplication: 212 → 202 rows
+2026-04-28 21:41:25,092 [INFO] Cleaned dataframe: 202 rows remaining.
+2026-04-28 21:41:25,094 [INFO] Feature engineering complete: Size Category and Speed Category added.
+2026-04-28 21:41:25,214 [INFO] Master dataset updated.
+2026-04-28 21:41:25,214 [INFO] Pipeline complete. Final rows: 202
