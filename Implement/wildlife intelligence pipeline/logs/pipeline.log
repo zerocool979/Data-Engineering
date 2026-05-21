@@ -1,24 +1,51 @@
-2026-04-28 21:29:49,048 [INFO] === Pipeline started ===
-2026-04-28 21:29:49,119 [INFO] Master rows: 205
-2026-04-28 21:29:49,125 [INFO] Deduplication: 205 → 196 rows
-2026-04-28 21:29:49,150 [INFO] Cleaned dataframe: 196 rows remaining.
-2026-04-28 21:29:49,151 [INFO] Feature engineering complete: Size Category and Speed Category added.
-2026-04-28 21:29:49,158 [INFO] Pipeline complete. Final rows: 196
-2026-04-28 21:31:25,231 [INFO] File saved to /home/fufufafa/Data-Engineering/Implement/wildlife/wildlife-intelligence-pipeline/scripts/../data/uploads/uploaded_20260428_213125.csv
-2026-04-28 21:31:25,231 [INFO] === Pipeline started ===
-2026-04-28 21:31:25,244 [INFO] Master rows: 205
-2026-04-28 21:31:25,278 [INFO] Uploaded rows: 7
-2026-04-28 21:31:25,281 [INFO] Combined rows before dedup: 212
-2026-04-28 21:31:25,282 [INFO] Deduplication: 212 → 202 rows
-2026-04-28 21:31:25,338 [INFO] Cleaned dataframe: 202 rows remaining.
-2026-04-28 21:31:25,340 [INFO] Feature engineering complete: Size Category and Speed Category added.
-2026-04-28 21:41:24,928 [INFO] File saved to /home/fufufafa/Data-Engineering/Implement/wildlife/wildlife-intelligence-pipeline/scripts/../data/uploads/uploaded_20260428_214124.csv
-2026-04-28 21:41:24,928 [INFO] === Pipeline started ===
-2026-04-28 21:41:24,933 [INFO] Master rows: 205
-2026-04-28 21:41:24,936 [INFO] Uploaded rows: 7
-2026-04-28 21:41:24,967 [INFO] Combined rows before dedup: 212
-2026-04-28 21:41:24,997 [INFO] Deduplication: 212 → 202 rows
-2026-04-28 21:41:25,092 [INFO] Cleaned dataframe: 202 rows remaining.
-2026-04-28 21:41:25,094 [INFO] Feature engineering complete: Size Category and Speed Category added.
-2026-04-28 21:41:25,214 [INFO] Master dataset updated.
-2026-04-28 21:41:25,214 [INFO] Pipeline complete. Final rows: 202
+2026-05-21 11:37:44,097 [INFO] pipeline_runner - Running initial data load...
+2026-05-21 11:37:44,236 [INFO] pipeline_runner - === Pipeline START: Animal Dataset.csv ===
+2026-05-21 11:37:44,335 [INFO] pipeline.cleaner - Starting cleaning pipeline for Animal Dataset.csv, rows=205
+2026-05-21 11:37:44,466 [WARNING] pipeline.cleaner - Removed 9 duplicate animals
+2026-05-21 11:37:44,467 [INFO] pipeline.cleaner - Cleaning complete. Final rows=196
+2026-05-21 11:37:44,737 [INFO] pipeline.feature_engineering - Starting feature engineering...
+2026-05-21 11:37:44,760 [INFO] pipeline.feature_engineering - Feature engineering complete.
+2026-05-21 11:37:45,034 [INFO] pipeline_runner - === Pipeline END: {'status': 'success', 'source': 'Animal Dataset.csv', 'rows_total': 205, 'rows_inserted': 196, 'rows_skipped': 0, 'quality_score': 100, 'elapsed_seconds': 0.8, 'warnings': ['Found 9 duplicate rows (will be removed).', "Non-standard conservation statuses found: {'Extinct (around 4,000 years ago)', 'Varies', 'Data Deficient', 'Not Evaluated', 'Extinct (around 58 million years ago)', 'Not Applicable'}"]} ===
+2026-05-21 11:37:45,035 [INFO] pipeline_runner - Loaded Animal Dataset.csv: {'status': 'success', 'source': 'Animal Dataset.csv', 'rows_total': 205, 'rows_inserted': 196, 'rows_skipped': 0, 'quality_score': 100, 'elapsed_seconds': 0.8, 'warnings': ['Found 9 duplicate rows (will be removed).', "Non-standard conservation statuses found: {'Extinct (around 4,000 years ago)', 'Varies', 'Data Deficient', 'Not Evaluated', 'Extinct (around 58 million years ago)', 'Not Applicable'}"]}
+2026-05-21 11:37:45,041 [INFO] pipeline_runner - === Pipeline START: databaru01.csv ===
+2026-05-21 11:37:45,082 [INFO] pipeline.cleaner - Starting cleaning pipeline for databaru01.csv, rows=7
+2026-05-21 11:37:45,169 [WARNING] pipeline.cleaner - Removed 1 duplicate animals
+2026-05-21 11:37:45,170 [INFO] pipeline.cleaner - Cleaning complete. Final rows=6
+2026-05-21 11:37:45,197 [INFO] pipeline.feature_engineering - Starting feature engineering...
+2026-05-21 11:37:45,209 [INFO] pipeline.feature_engineering - Feature engineering complete.
+2026-05-21 11:37:45,262 [INFO] pipeline_runner - === Pipeline END: {'status': 'success', 'source': 'databaru01.csv', 'rows_total': 7, 'rows_inserted': 5, 'rows_skipped': 1, 'quality_score': np.float64(98.4), 'elapsed_seconds': 0.22, 'warnings': []} ===
+2026-05-21 11:37:45,263 [INFO] pipeline_runner - Loaded databaru01.csv: {'status': 'success', 'source': 'databaru01.csv', 'rows_total': 7, 'rows_inserted': 5, 'rows_skipped': 1, 'quality_score': np.float64(98.4), 'elapsed_seconds': 0.22, 'warnings': []}
+2026-05-21 11:37:45,269 [INFO] pipeline_runner - === Pipeline START: databaru02.csv ===
+2026-05-21 11:37:45,324 [INFO] pipeline.cleaner - Starting cleaning pipeline for databaru02.csv, rows=25
+2026-05-21 11:37:45,420 [WARNING] pipeline.cleaner - Removed 4 duplicate animals
+2026-05-21 11:37:45,421 [INFO] pipeline.cleaner - Cleaning complete. Final rows=21
+2026-05-21 11:37:45,449 [INFO] pipeline.feature_engineering - Starting feature engineering...
+2026-05-21 11:37:45,455 [INFO] pipeline.feature_engineering - Feature engineering complete.
+2026-05-21 11:37:45,516 [INFO] pipeline_runner - === Pipeline END: {'status': 'success', 'source': 'databaru02.csv', 'rows_total': 25, 'rows_inserted': 12, 'rows_skipped': 9, 'quality_score': np.float64(96.1), 'elapsed_seconds': 0.25, 'warnings': ['Found 2 duplicate rows (will be removed).']} ===
+2026-05-21 11:37:45,517 [INFO] pipeline_runner - Loaded databaru02.csv: {'status': 'success', 'source': 'databaru02.csv', 'rows_total': 25, 'rows_inserted': 12, 'rows_skipped': 9, 'quality_score': np.float64(96.1), 'elapsed_seconds': 0.25, 'warnings': ['Found 2 duplicate rows (will be removed).']}
+2026-05-21 11:42:19,259 [INFO] pipeline_runner - === Pipeline START: Animal Dataset.csv ===
+2026-05-21 11:42:19,341 [INFO] pipeline.cleaner - Starting cleaning pipeline for Animal Dataset.csv, rows=205
+2026-05-21 11:42:19,408 [WARNING] pipeline.cleaner - Removed 9 duplicate animals
+2026-05-21 11:42:19,411 [INFO] pipeline.cleaner - Cleaning complete. Final rows=196
+2026-05-21 11:42:19,435 [INFO] pipeline.feature_engineering - Starting feature engineering...
+2026-05-21 11:42:19,451 [INFO] pipeline.feature_engineering - Feature engineering complete.
+2026-05-21 11:42:19,517 [INFO] pipeline_runner - === Pipeline END: {'status': 'success', 'source': 'Animal Dataset.csv', 'rows_total': 205, 'rows_inserted': 0, 'rows_skipped': 196, 'quality_score': 100, 'elapsed_seconds': 0.26, 'warnings': ['Found 9 duplicate rows (will be removed).', "Non-standard conservation statuses found: {'Extinct (around 4,000 years ago)', 'Varies', 'Not Applicable', 'Data Deficient', 'Extinct (around 58 million years ago)', 'Not Evaluated'}"]} ===
+2026-05-21 11:42:19,518 [INFO] pipeline_runner - Loaded Animal Dataset.csv: {'status': 'success', 'source': 'Animal Dataset.csv', 'rows_total': 205, 'rows_inserted': 0, 'rows_skipped': 196, 'quality_score': 100, 'elapsed_seconds': 0.26, 'warnings': ['Found 9 duplicate rows (will be removed).', "Non-standard conservation statuses found: {'Extinct (around 4,000 years ago)', 'Varies', 'Not Applicable', 'Data Deficient', 'Extinct (around 58 million years ago)', 'Not Evaluated'}"]}
+2026-05-21 11:42:19,521 [INFO] pipeline_runner - === Pipeline START: databaru01.csv ===
+2026-05-21 11:42:19,557 [INFO] pipeline.cleaner - Starting cleaning pipeline for databaru01.csv, rows=7
+2026-05-21 11:42:19,615 [WARNING] pipeline.cleaner - Removed 1 duplicate animals
+2026-05-21 11:42:19,619 [INFO] pipeline.cleaner - Cleaning complete. Final rows=6
+2026-05-21 11:42:19,642 [INFO] pipeline.feature_engineering - Starting feature engineering...
+2026-05-21 11:42:19,651 [INFO] pipeline.feature_engineering - Feature engineering complete.
+2026-05-21 11:42:19,688 [INFO] pipeline_runner - === Pipeline END: {'status': 'success', 'source': 'databaru01.csv', 'rows_total': 7, 'rows_inserted': 0, 'rows_skipped': 6, 'quality_score': np.float64(98.4), 'elapsed_seconds': 0.17, 'warnings': []} ===
+2026-05-21 11:42:19,688 [INFO] pipeline_runner - Loaded databaru01.csv: {'status': 'success', 'source': 'databaru01.csv', 'rows_total': 7, 'rows_inserted': 0, 'rows_skipped': 6, 'quality_score': np.float64(98.4), 'elapsed_seconds': 0.17, 'warnings': []}
+2026-05-21 11:42:19,692 [INFO] pipeline_runner - === Pipeline START: databaru02.csv ===
+2026-05-21 11:42:19,728 [INFO] pipeline.cleaner - Starting cleaning pipeline for databaru02.csv, rows=25
+2026-05-21 11:42:19,780 [WARNING] pipeline.cleaner - Removed 4 duplicate animals
+2026-05-21 11:42:19,781 [INFO] pipeline.cleaner - Cleaning complete. Final rows=21
+2026-05-21 11:42:19,805 [INFO] pipeline.feature_engineering - Starting feature engineering...
+2026-05-21 11:42:19,813 [INFO] pipeline.feature_engineering - Feature engineering complete.
+2026-05-21 11:42:19,839 [INFO] pipeline_runner - === Pipeline END: {'status': 'success', 'source': 'databaru02.csv', 'rows_total': 25, 'rows_inserted': 0, 'rows_skipped': 21, 'quality_score': np.float64(96.1), 'elapsed_seconds': 0.15, 'warnings': ['Found 2 duplicate rows (will be removed).']} ===
+2026-05-21 11:42:19,840 [INFO] pipeline_runner - Loaded databaru02.csv: {'status': 'success', 'source': 'databaru02.csv', 'rows_total': 25, 'rows_inserted': 0, 'rows_skipped': 21, 'quality_score': np.float64(96.1), 'elapsed_seconds': 0.15, 'warnings': ['Found 2 duplicate rows (will be removed).']}
+2026-05-21 11:57:49,944 [INFO] pipeline.feature_engineering - Starting feature engineering...
+2026-05-21 11:57:50,009 [INFO] pipeline.feature_engineering - Feature engineering complete.
